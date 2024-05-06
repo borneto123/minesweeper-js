@@ -12,7 +12,6 @@ class Tile{
     this.value = value;
     this.display = 0;
     }
- 
 }
 
 let neighbor = [[-1, -1], [-1, 0], [-1, +1], [0, -1], [0, +1], [+1, -1], [+1, 0], [+1, +1]];
@@ -36,7 +35,7 @@ class Grid{
     }
     generateMines(){
         for(let i=0; i<this.mineNumber; i++) this.spawnMine();   
-        this.printBoardValue();
+        //this.printBoardValue();
     }
 
     spawnMine(){
@@ -138,7 +137,7 @@ class Grid{
         if(gameState == 0){
             if(this.bombTiles[x][y].display == 0)
                 this.bombTiles[x][y].display = 2;
-            else
+            else if(this.bombTiles[x][y].display == 2)
                 this.bombTiles[x][y].display = 0;
             this.refreshBtn();
         }   
